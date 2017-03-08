@@ -39,7 +39,7 @@ public class PVPClientHandler extends
 	public SocketResponse getSocketResponse() {
 		// Now wait for response from server
 		boolean interrupted = false;
-		//知道有消息才会返回，否则等待
+		//直到有消息才会返回，否则等待
 		for (;;) {
 			try {
 				resp = resps.take();

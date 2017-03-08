@@ -21,7 +21,11 @@ public class ProReaderUtil {
     /**
      * 配置文件路径
      */
-    private String confPath = "confFiles";
+    //本地
+    private String confPath = "E://aJax//client_confFiles";
+    
+    //线上
+    //private String confPath = "/home/roger.wang/chris/client_confFiles";
 
     /**
      * redis配置缓存

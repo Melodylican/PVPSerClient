@@ -365,8 +365,7 @@ public class ZmqCliProxy {
 				} else if (null != pollItems[1] && server.expiry <= System.currentTimeMillis()) {
 					// Server has died, failover to next
 					server.expiry = System.currentTimeMillis() + SERVER_TTL;
-					logger.warn(String.format("W: state: %d server at %s:%d didn't give hugz", self.state,
-							server.address, server.port));
+					//logger.warn(String.format("W: state: %d server at %s:%d didn't give hugz", self.state,server.address, server.port));
 					// self.curServer = (self.curServer + 1) % self.nbrServers;
 				}
 

@@ -44,6 +44,7 @@ public class SimpleCache<T> {
 		} catch (InterruptedException e) {
 			logger.error("poll object timeout error:" + e.getMessage());
 		}
+		
 		return t;
 	}
 

@@ -1,0 +1,246 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000007fef2f13e70, pid=38656, tid=0x000000000000f754
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_111-b14) (build 1.8.0_111-b14)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.111-b14 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# C  [libzmq.dll+0x23e70]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000023df800):  JavaThread "main" [_thread_in_native, id=63316, stack(0x0000000002720000,0x0000000002820000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000cc34f5069
+
+Registers:
+RAX=0x000000001d646b80, RBX=0x0000000cc34f4d01, RCX=0x0000000cc34f4d01, RDX=0x000000001d646b80
+RSP=0x000000000281f168, RBP=0x000000000281f268, RSI=0x000000001d646b80, RDI=0x000000001d646b80
+R8 =0x000000001d646b80, R9 =0x000000000000001c, R10=0x000000001d646b9c, R11=0x000000076b9dbe50
+R12=0x0000000000000000, R13=0x000000001bb5c550, R14=0x000000000281f270, R15=0x00000000023df800
+RIP=0x000007fef2f13e70, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x000000000281f168)
+0x000000000281f168:   000007fef2f249ea 0000000000000000
+0x000000000281f178:   0000000000000000 0000000000000000
+0x000000000281f188:   00000000023df800 00000000023df9f8
+0x000000000281f198:   000007fefaa12061 0000000cc34f4d01
+0x000000000281f1a8:   00000000023df9f8 0000000000000000
+0x000000000281f1b8:   0000000cc34f4d01 0000000000000000
+0x000000000281f1c8:   0000000002837f74 000000000000001c
+0x000000000281f1d8:   000000000281f270 000000001bb5c550
+0x000000000281f1e8:   000000000281f248 000000000000001c
+0x000000000281f1f8:   00000000023df800 0000000002837ca2
+0x000000000281f208:   000000000281f208 000000001bb5c550
+0x000000000281f218:   000000000281f270 000000001bb5d9e8
+0x000000000281f228:   0000000000000000 000000001bb5c550
+0x000000000281f238:   0000000000000000 000000000281f268
+0x000000000281f248:   000000000281f2b8 000000000282835d
+0x000000000281f258:   0000000000000000 00000000028319d8 
+
+Instructions: (pc=0x000007fef2f13e70)
+0x000007fef2f13e50:   50 48 8b 7c 24 58 48 83 c4 20 41 5f 41 5e 41 5d
+0x000007fef2f13e60:   c3 cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc
+0x000007fef2f13e70:   81 b9 68 03 00 00 af ec dd ba 0f 94 c0 c3 cc cc
+0x000007fef2f13e80:   48 83 ec 28 48 8b d1 c7 81 68 03 00 00 ef be ad 
+
+
+Register to memory mapping:
+
+RAX=0x000000001d646b80 is an unknown value
+RBX=0x0000000cc34f4d01 is an unknown value
+RCX=0x0000000cc34f4d01 is an unknown value
+RDX=0x000000001d646b80 is an unknown value
+RSP=0x000000000281f168 is pointing into the stack for thread: 0x00000000023df800
+RBP=0x000000000281f268 is pointing into the stack for thread: 0x00000000023df800
+RSI=0x000000001d646b80 is an unknown value
+RDI=0x000000001d646b80 is an unknown value
+R8 =0x000000001d646b80 is an unknown value
+R9 =0x000000000000001c is an unknown value
+R10=0x000000001d646b9c is an unknown value
+R11=0x000000076b9dbe50 is an oop
+java.lang.String 
+ - klass: 'java/lang/String'
+R12=0x0000000000000000 is an unknown value
+R13={method} {0x000000001bb5c558} 'bind' '(Ljava/lang/String;)V' in 'org/zeromq/ZMQ$Socket'
+R14=0x000000000281f270 is pointing into the stack for thread: 0x00000000023df800
+R15=0x00000000023df800 is a thread
+
+
+Stack: [0x0000000002720000,0x0000000002820000],  sp=0x000000000281f168,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libzmq.dll+0x23e70]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.zeromq.ZMQ$Socket.bind(Ljava/lang/String;)V+0
+j  org.zeromq.ZThread.fork(Lorg/zeromq/ZContext;Lorg/zeromq/ZThread$IAttachedRunnable;[Ljava/lang/Object;)Lorg/zeromq/ZMQ$Socket;+30
+j  com.dsky.netty.pvpserclient.pvpproxy.ZmqCliProxy.<init>(Lcom/dsky/netty/pvpserclient/pvpproxy/ZmqHandlerMsg;)V+32
+j  com.dsky.netty.pvpserclient.pvpproxy.PVPSerZmqClient.start()V+15
+j  com.dsky.netty.pvpserclient.pvpproxy.PVPSerZmqClient.main([Ljava/lang/String;)V+7
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001d63f800 JavaThread "Thread-0" [_thread_in_Java, id=40028, stack(0x000000001e4e0000,0x000000001e5e0000)]
+  0x000000001d4cb000 JavaThread "Service Thread" daemon [_thread_blocked, id=55220, stack(0x000000001e040000,0x000000001e140000)]
+  0x000000001d43e000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=58316, stack(0x000000001de70000,0x000000001df70000)]
+  0x000000001d43d000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=58952, stack(0x000000001dd40000,0x000000001de40000)]
+  0x000000001c10e000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=53496, stack(0x000000001db30000,0x000000001dc30000)]
+  0x000000001c10d000 JavaThread "Attach Listener" daemon [_thread_blocked, id=60548, stack(0x000000001da10000,0x000000001db10000)]
+  0x000000001d42a800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=60020, stack(0x000000001d890000,0x000000001d990000)]
+  0x000000001c0e9800 JavaThread "Finalizer" daemon [_thread_blocked, id=62096, stack(0x000000001d320000,0x000000001d420000)]
+  0x000000001c0a2000 JavaThread "Reference Handler" daemon [_thread_blocked, id=59764, stack(0x000000001d1e0000,0x000000001d2e0000)]
+=>0x00000000023df800 JavaThread "main" [_thread_in_native, id=63316, stack(0x0000000002720000,0x0000000002820000)]
+
+Other Threads:
+  0x000000001c09a800 VMThread [stack: 0x000000001cfd0000,0x000000001d0d0000] [id=49696]
+  0x000000001d4f4800 WatcherThread [stack: 0x000000001e2c0000,0x000000001e3c0000] [id=58012]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 76288K, used 6554K [0x000000076b500000, 0x0000000770a00000, 0x00000007c0000000)
+  eden space 65536K, 10% used [0x000000076b500000,0x000000076bb66948,0x000000076f500000)
+  from space 10752K, 0% used [0x000000076ff80000,0x000000076ff80000,0x0000000770a00000)
+  to   space 10752K, 0% used [0x000000076f500000,0x000000076f500000,0x000000076ff80000)
+ ParOldGen       total 175104K, used 0K [0x00000006c1e00000, 0x00000006cc900000, 0x000000076b500000)
+  object space 175104K, 0% used [0x00000006c1e00000,0x00000006c1e00000,0x00000006cc900000)
+ Metaspace       used 4758K, capacity 5100K, committed 5248K, reserved 1056768K
+  class space    used 552K, capacity 596K, committed 640K, reserved 1048576K
+
+Card table byte_map: [0x0000000011be0000,0x00000000123e0000] byte_map_base: 0x000000000e5d1000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006231a6c0
+ Begin Bits: [0x0000000013000000, 0x0000000016f88000)
+ End Bits:   [0x0000000016f88000, 0x000000001af10000)
+
+Polling page: 0x0000000000120000
+
+CodeCache: size=245760Kb used=1529Kb max_used=1532Kb free=244230Kb
+ bounds [0x0000000002820000, 0x0000000002a90000, 0x0000000011820000]
+ total_blobs=480 nmethods=217 adapters=176
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.204 Thread 0x000000001c10e000  213  s    4       java.io.BufferedInputStream::read (49 bytes)
+Event: 0.204 Thread 0x000000001d43e000  214       3       java.io.DataInputStream::readInt (72 bytes)
+Event: 0.204 Thread 0x000000001d43e000 nmethod 214 0x000000000299ca10 code [0x000000000299cbc0, 0x000000000299d128]
+Event: 0.204 Thread 0x000000001d43e000  215       3       java.util.StringTokenizer::scanToken (179 bytes)
+Event: 0.205 Thread 0x000000001d43e000 nmethod 215 0x000000000299ad10 code [0x000000000299af80, 0x000000000299c298]
+Event: 0.205 Thread 0x000000001d43e000  216       3       java.util.StringTokenizer::skipDelimiters (116 bytes)
+Event: 0.205 Thread 0x000000001c10e000 nmethod 213 0x000000000299a610 code [0x000000000299a760, 0x000000000299ab68]
+Event: 0.206 Thread 0x000000001d43e000 nmethod 216 0x000000000299f0d0 code [0x000000000299f2e0, 0x000000000299fe98]
+Event: 0.206 Thread 0x000000001d43e000  217       3       java.util.StringTokenizer::hasMoreTokens (29 bytes)
+Event: 0.206 Thread 0x000000001d43e000 nmethod 217 0x0000000002993410 code [0x0000000002993580, 0x0000000002993788]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.172 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/ConsoleAppenderBeanInfo> (0x000000076b8cd968) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.172 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/WriterAppenderBeanInfo> (0x000000076b8d12a0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.173 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/AppenderSkeletonBeanInfo> (0x000000076b8d5480) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.173 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/AppenderSkeletonCustomizer> (0x000000076b8d9580) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.174 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/WriterAppenderCustomizer> (0x000000076b8efbc0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.175 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/ConsoleAppenderCustomizer> (0x000000076b8ffc80) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.181 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/RollingFileAppenderBeanInfo> (0x000000076b92aef8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.181 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/FileAppenderBeanInfo> (0x000000076b92e788) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.181 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/FileAppenderCustomizer> (0x000000076b932020) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.182 Thread 0x00000000023df800 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/RollingFileAppenderCustomizer> (0x000000076b942678) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 0.206 loading class java/util/Formatter$FixedString
+Event: 0.206 loading class java/util/Formatter$FormatString
+Event: 0.206 loading class java/util/Formatter$FormatString done
+Event: 0.207 loading class java/util/Formatter$FixedString done
+Event: 0.207 loading class java/util/Formatter$FormatSpecifier
+Event: 0.207 loading class java/util/Formatter$FormatSpecifier done
+Event: 0.207 loading class java/util/Formatter$Flags
+Event: 0.207 loading class java/util/Formatter$Flags done
+Event: 0.207 loading class java/util/Formatter$Conversion
+Event: 0.207 loading class java/util/Formatter$Conversion done
+
+
+Dynamic libraries:
+0x000000013f730000 - 0x000000013f767000 	C:\Program Files\Java\jdk1.8.0_111\bin\javaw.exe
+0x0000000077290000 - 0x000000007743a000 	C:\windows\SYSTEM32\ntdll.dll
+0x0000000077070000 - 0x000000007718f000 	C:\windows\system32\kernel32.dll
+0x000007fefd070000 - 0x000007fefd0da000 	C:\windows\system32\KERNELBASE.dll
+0x000007feff100000 - 0x000007feff1db000 	C:\windows\system32\ADVAPI32.dll
+0x000007fefd510000 - 0x000007fefd5af000 	C:\windows\system32\msvcrt.dll
+0x000007feff370000 - 0x000007feff38f000 	C:\windows\SYSTEM32\sechost.dll
+0x000007feff240000 - 0x000007feff36d000 	C:\windows\system32\RPCRT4.dll
+0x0000000077190000 - 0x000000007728a000 	C:\windows\system32\USER32.dll
+0x000007fefd790000 - 0x000007fefd7f7000 	C:\windows\system32\GDI32.dll
+0x000007feff070000 - 0x000007feff07e000 	C:\windows\system32\LPK.dll
+0x000007feff480000 - 0x000007feff54a000 	C:\windows\system32\USP10.dll
+0x000007fefb9b0000 - 0x000007fefbba4000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_fa3b1e3d17594757\COMCTL32.dll
+0x000007feff080000 - 0x000007feff0f1000 	C:\windows\system32\SHLWAPI.dll
+0x000007fefd8c0000 - 0x000007fefd8ee000 	C:\windows\system32\IMM32.DLL
+0x000007fefd380000 - 0x000007fefd489000 	C:\windows\system32\MSCTF.dll
+0x00000000688c0000 - 0x0000000068992000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\msvcr100.dll
+0x0000000061b00000 - 0x000000006239a000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\server\jvm.dll
+0x000007fef9e30000 - 0x000007fef9e39000 	C:\windows\system32\WSOCK32.dll
+0x000007feff550000 - 0x000007feff59d000 	C:\windows\system32\WS2_32.dll
+0x000007feff390000 - 0x000007feff398000 	C:\windows\system32\NSI.dll
+0x000007fefb020000 - 0x000007fefb05b000 	C:\windows\system32\WINMM.dll
+0x000007fefc070000 - 0x000007fefc07c000 	C:\windows\system32\VERSION.dll
+0x0000000077460000 - 0x0000000077467000 	C:\windows\system32\PSAPI.DLL
+0x0000000073be0000 - 0x0000000073bef000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\verify.dll
+0x0000000073bb0000 - 0x0000000073bd9000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\java.dll
+0x0000000073b80000 - 0x0000000073b96000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\zip.dll
+0x000007fefe000000 - 0x000007fefed8a000 	C:\windows\system32\SHELL32.dll
+0x000007fefddf0000 - 0x000007fefdff3000 	C:\windows\system32\ole32.dll
+0x000007fefcfd0000 - 0x000007fefcfdf000 	C:\windows\system32\profapi.dll
+0x000007fefaa10000 - 0x000007fefaa1a000 	C:\Program Files\Java\jdk1.8.0_111\bin\jzmq.dll
+0x000007fef2ef0000 - 0x000007fef2f49000 	C:\Program Files\Java\jdk1.8.0_111\bin\libzmq.dll
+0x000007fef2e40000 - 0x000007fef2ee7000 	C:\windows\system32\MSVCP110.dll
+0x000007fee7890000 - 0x000007fee7964000 	C:\windows\system32\MSVCR110.dll
+0x000007fefc730000 - 0x000007fefc785000 	C:\windows\system32\mswsock.dll
+0x000007fefc140000 - 0x000007fefc147000 	C:\windows\System32\wshtcpip.dll
+0x000007fef8630000 - 0x000007fef8755000 	C:\windows\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=utf-8 
+java_command: com.dsky.netty.pvpserclient.pvpproxy.PVPSerZmqClient
+java_class_path (initial): E:\myeclipse2014workspace\PVPSerClient\target\classes;C:\Users\chris.li\.m2\repository\org\zeromq\jzmq\2.1.3\jzmq-2.1.3.jar;C:\Users\chris.li\.m2\repository\io\netty\netty-all\5.0.0.Alpha1\netty-all-5.0.0.Alpha1.jar;C:\Users\chris.li\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\chris.li\.m2\repository\com\alibaba\fastjson\1.1.41\fastjson-1.1.41.jar;C:\Users\chris.li\.m2\repository\com\google\protobuf\protobuf-java\3.0.0\protobuf-java-3.0.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_111
+CLASSPATH=.;
+PATH=C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_111\bin;D:\Maven\maven-3.3.9\bin;C:\windows\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;D:\CTex\UserData\miktex\bin;D:\CTex\MiKTeX\miktex\bin;D:\CTex\CTeX\ctex\bin;D:\CTex\CTeX\cct\bin;D:\CTex\CTeX\ty\bin;D:\CTex\Ghostscript\gs9.05\bin;D:\CTex\GSview\gsview;D:\CTex\WinEdt;C:\Program Files\TortoiseSVN\bin;D:\php5.6\php-5.6.19-nts-Win32-VC11-x86;D:\matlab2014\runtime\win64;D:\matlab2014\bin;D:\matlab2014\polyspace\bin;D:\git\Git\cmd;C:\Program Files\nodejs\;C:\Python27;C:\Users\chris.li\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;D:\SSH;C:\Users\chris.li\AppData\Roaming\npm
+USERNAME=chris.li
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 (6.1.7601.23572)
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 16650728k(7735384k free), swap 33299596k(21363416k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.111-b14) for windows-amd64 JRE (1.8.0_111-b14), built on Sep 22 2016 19:24:05 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Wed Mar 08 13:59:09 2017
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

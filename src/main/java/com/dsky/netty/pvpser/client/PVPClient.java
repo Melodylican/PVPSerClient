@@ -48,12 +48,10 @@ public class PVPClient {
 			
 			System.out.println("调用了sendRequest 方法 ...");
 			SocketRequest.Builder req = SocketRequest.newBuilder();
-			req.setNumber(ProtocolCode.SYSTEM_UPLOAD_HEARTBEAT);
-			req.setSequence(0);
-			req.setUserId("123456");
-			req.setRoomId("13256431");
-			req.setRequestMsg("{\"roomId\":154321321,\"userId\":123456,\"data\":\"sdfdsfdsfdsvdsfdsfdsfdscvdsfdsfdsfds\",\"roomCreatetime\":1321456421,\"numbers\":3}");
-
+			req.setNumber(ProtocolCode.JOIN_ROOM);
+			req.setUserId("123456789");
+			req.setRoomId("9999999999");
+			req.setRequestMsg("{\"gamedata\":\"dsfdsfdsfds\",\"userdata\":\"dsfdsfdsfds\",\"time\":300,\"roomCreatetime\":1321456421,\"numbers\":3}");
 
 			// 发送请求
 			c.writeAndFlush(req);

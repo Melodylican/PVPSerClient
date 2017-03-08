@@ -83,7 +83,6 @@ public class PVPClientSingleton {
 		return resp;
 	}
 	
-
 	public static void shutDown() {
 		group.shutdownGracefully();
 	}
